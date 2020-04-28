@@ -1,18 +1,19 @@
-## Android Application for Crop Analyzer 
+# Andriod Application of Crop Analyzer Application 🍂 👩‍🌾
+> This is the Android Application build using JAVA as the prime language.
 
-### To run on a real device
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/49617450/79211156-7a7b8980-7e63-11ea-93cd-ed60dbff6ff7.png">
+</p>
 
-<ul>
-<li>In Android Studio, select your app from the run/debug configurations drop-down menu in the toolbar.</li>
-<li>In the toolbar, select the device that you want to run your app on from the target device drop-down menu.</li>
-<li>Click Run. Android Studio installs your app on your connected device and starts it. You now see "Hello, World!" displayed in the app on your device.</li>
-</ul>
 
-### To run the app on an emulator
 
-<ul>
-<li>In Android Studio, create an Android Virtual Device (AVD) that the emulator can use to install and run your app.</li>
-<li>In the toolbar, select your app from the run/debug configurations drop-down menu.</li>
-<li>From the target device drop-down menu, select the AVD that you want to run your app on.</li>
-<li>Click Run. Android Studio installs the app on the AVD and starts the emulator. You now see "Hello, World!" displayed in the app.</li>
-</ul>
+
+[![GitHub issues](https://img.shields.io/github/issues/CropAi/Android-Application)](https://github.com/CropAi/Backend/issues)  [![GitHub forks](https://img.shields.io/github/forks/CropAi/Android-Application)](https://github.com/CropAi/Backend/network)  [![GitHub stars](https://img.shields.io/github/stars/CropAi/Android-Application)](https://github.com/CropAi/Backend/stargazers)  [![GitHub license](https://img.shields.io/github/license/CropAi/Android-Application)](https://github.com/CropAi/Backend)
+
+
+## INTRODUCTION 😎
+This is a crop advisory app for farmers and gardeners. It can diagnose pest damage, plant disease and nutrient deficiencies that are affecting crops and can offer corresponding treatment measures.
+
+## WORKING 👨‍💻 
+
+This application takes an image of the leaf or crop as input and shows the results. It diagnoses the plant disease, pest damage, nutrient deficiencies and other factors affecting the growth of the crop and offers corresponding treatment measures to cure it. The result will be mainly presented in three categories, which are symptoms, treatments, and recommended products.
