@@ -17,5 +17,5 @@ public class MainActivity extends AppCompatActivity {
     
     private void bindView(){
         button = findViewById(R.id.button);
-        imageview=findViewById(R.id.image_view);
+        imageView=findViewById(R.id.image_view);
 }
