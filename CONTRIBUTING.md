@@ -98,8 +98,8 @@ For example if I was working on branch called `bug-fix-2` , the you can do the f
 9. Make sure you get the green check mark saying "Able to merge". Write a message if the changes you made are very big to help us understand you changes better. 
 
 **Always mention your issue number on you message using expressions like `closes` or `fixes`:**
-> Example:  fixes #3  
-> Example: closes #3
+> Example 1:  fixes #3  
+> Example 2: closes #3
     
 ![Pull-Request-2](https://user-images.githubusercontent.com/49617450/80521565-dccaa300-89a8-11ea-981a-f7d293e1ffcd.png)
 
@@ -120,29 +120,29 @@ Celebrate your success after your pull request is merged!
 
     For example: `git checkout doc-fix`
 
-2. To see the status of you branch, you can use:
+2. To see the status of you branch, you can use: 
      `git status`
 
-3. To see the commit logs, you can use:
+3. To see the commit logs, you can use: 
      `git log`
 
-4. To see the difference between a file on the current branch and potentially another branch.
+4. To see the difference between a file on the current branch and potentially another branch: 
      `git diff`
 
-5. Add all files under directory <dir> to the project, including subdirectories.
+5. Add all files under directory , including subdirectories: 
      `git add <dir>`
 
 6. Add all files under the current directory to the project
-    *WARNING*: including untracked files.
+    *WARNING*: including untracked files: 
      `git add .`
 
-7. Remove the specified files from the next commit.
+7. Remove the specified files from the next commit:  
      `git reset HEAD <file1> <file2> ... `
 
-8. List all local branches.
+8. List all local branches: 
      `git branch`
 
-9. Merge branch <branch> into the current branch; this command is idempotent and can be run as many times as needed to keep the current branch up-to-date with changes in <branch>.
+9. Merge branch  into the current branch; this command is idempotent and can be run as many times as needed to keep the current branch up-to-date with changes in branch
      `git merge <branch>`
 
 10. Fetch changes from the server, and merge them into the current branch..
