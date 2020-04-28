@@ -1,0 +1,11 @@
+addReviewers: true
+
+addAssignees: false
+
+reviewers:
+  - tanishq9 
+
+numberOfReviewers: 0
+
+skipKeywords:
+  - wip
