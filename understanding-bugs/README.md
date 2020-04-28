@@ -1,0 +1,1 @@
+#### Add a markdown file for the bug that you encountered while implementing a feature. Also, write about the resources you refered to for fixing that bug. Elaborate as much as possible. You can attatch images as well, since its a markdown file. 
