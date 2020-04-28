@@ -98,9 +98,10 @@ For example if I was working on branch called `bug-fix-2` , the you can do the f
 9. Make sure you get the green check mark saying "Able to merge". Write a message if the changes you made are very big to help us understand you changes better. 
 
 **Always mention your issue number on you message using expressions like `closes` or `fixes`:**
-> Example:  fixes #3
+> Example:  fixes #3  
+> Example: closes #3
     
-![Pull-Request-2](https://user-images.githubusercontent.com/49617450/78125956-65e4cd80-742f-11ea-99f4-c9a4344a7cb6.png)
+![Pull-Request-2](https://user-images.githubusercontent.com/49617450/80521565-dccaa300-89a8-11ea-981a-f7d293e1ffcd.png)
 
 
 
