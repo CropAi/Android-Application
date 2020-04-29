@@ -1,13 +1,29 @@
 package com.boss.cropanalyzerapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int IMAGE_PICK_CODE = 100;
+    private static final int PERMISSION_CODE = 101;
+
     Button uploadButton;
     ImageView imageView;
 
@@ -36,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         uploadImage();
                     }
                 } else {
-                    //system os is less than marshmallow
+                    // system os is less than marshmallow
                     uploadImage();
                 }
             }
@@ -48,10 +64,9 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
     }
 
-    private void uploadImage()() {
+    private void uploadImage() {
         //intent to upload image
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
+        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
@@ -59,14 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch(requestCode){
-            case PERMISSION_CODE:{
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_CODE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     uploadImage();
-                }
-                else
-                {
+                } else {
                     //permission denied
                     Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
                 }
@@ -75,14 +88,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //handling result of pick image
-
-    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE)
-        {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
             String TAG = "Image location";
-            Log.e(TAG, String.valueOf(data.getData()));
+            Log.e(TAG, data.getData().toString());
             imageView.setImageURI(data.getData());
         }
     }
