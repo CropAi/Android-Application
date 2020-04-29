@@ -1,4 +1,4 @@
 # Welcome Screen Mockup
 <p align="center">
-    <img width="542"  alt="Welcome Screen" src="https://user-images.githubusercontent.com/49617450/80596621-477cec80-8a44-11ea-9c03-e8ee8ede1ae9.png">
+   <img width="542" alt="Welcome Screen-2" src="https://user-images.githubusercontent.com/49617450/80600296-cf192a00-8a49-11ea-942f-3d325d4bc09c.png">
 </p>
