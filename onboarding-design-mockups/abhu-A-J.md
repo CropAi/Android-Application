@@ -1,4 +1,8 @@
 # Welcome Screen Mockup
+   - yet to be designed
+
+# Information  Screen Mockup
+
 <p align="center">
-   <img width="542" alt="Welcome Screen-2" src="https://user-images.githubusercontent.com/49617450/80600296-cf192a00-8a49-11ea-942f-3d325d4bc09c.png">
+  <img width="542" alt="Info_Screen" src="https://user-images.githubusercontent.com/49617450/80605735-17881600-8a51-11ea-88c1-619d9a1d6358.png">
 </p>
