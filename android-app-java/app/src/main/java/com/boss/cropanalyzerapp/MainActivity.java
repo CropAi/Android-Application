@@ -150,7 +150,16 @@ public class MainActivity extends AppCompatActivity {
 
         client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(Call call, final IOException e) {
+                // Hide Progress dialog
+                progressDialog.dismiss();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_LONG).show();
+                        resetViews();
+                    }
+                });
                 Log.e(TAG, "ERROR:" + e.getMessage());
             }
 
@@ -231,17 +240,21 @@ public class MainActivity extends AppCompatActivity {
                 case RESET_VIEWS: {
                     // reset the boolean variable and imageView
                     Log.e(TAG, "Back Inside Main Activity");
-                    userSelectedImage = false;
-                    imageView.setImageResource(R.drawable.ic_leaf);
-                    // reset the upload button
-                    uploadButton.setClickable(true);
-                    uploadButton.setAlpha(1f);
-                    // reset the imageView
-                    imageView.setClickable(true);
+                    resetViews();
                     break;
                 }
             }
 
         }
+    }
+
+    private void resetViews() {
+        userSelectedImage = false;
+        imageView.setImageResource(R.drawable.ic_leaf);
+        // reset the upload button
+        uploadButton.setClickable(true);
+        uploadButton.setAlpha(1f);
+        // reset the imageView
+        imageView.setClickable(true);
     }
 }
