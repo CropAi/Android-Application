@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int IMAGE_CHECK_CODE = 0;
+    private static int IMAGE_CODE = 0;
     private static final int IMAGE_PICK_CODE = 100;
     private static final int PERMISSION_CODE = 101;
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         analyzeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(IMAGE_CHECK_CODE != IMAGE_PICK_CODE)
+                if(IMAGE_CODE != IMAGE_PICK_CODE)
                 {
                     Toast.makeText(getApplicationContext(),"No file selected", Toast.LENGTH_SHORT).show();
                 }
