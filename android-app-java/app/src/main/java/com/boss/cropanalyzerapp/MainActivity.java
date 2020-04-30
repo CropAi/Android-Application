@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         analyzeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(IMAGE_CODE != IMAGE_PICK_CODE)
+                if(IMAGE_CHECK_CODE != IMAGE_PICK_CODE)
                 {
                     Toast.makeText(getApplicationContext(),"No file selected", Toast.LENGTH_SHORT).show();
                 }
