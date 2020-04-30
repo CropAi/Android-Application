@@ -5,4 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorLeaf">#31B971</color>
     <color name="colorDarkLeaf">#2F9760</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorOnBoardingIndicatorInactive">#72BCF7</color>
 </resources>
