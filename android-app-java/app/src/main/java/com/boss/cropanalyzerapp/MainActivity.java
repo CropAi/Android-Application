@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -122,9 +123,19 @@ public class MainActivity extends AppCompatActivity {
         // make a loader on the main thread
         progressDialog = new ProgressDialog(MainActivity.this);
         progressDialog.setTitle("Analyzing");
-        progressDialog.setMessage("Please Wait ...");
+        progressDialog.setProgress(30);//initially progress is 30 seconds
         progressDialog.setCancelable(false);
         progressDialog.show();
+
+        new CountDownTimer(30000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                progressDialog.setMessage(millisUntilFinished / 1000 + " SECONDS REMAINING");
+            }
+
+            public void onFinish() {
+                progressDialog.setMessage("ALMOST THERE");
+            }
+        }.start();
 
         File file = new File(image_path);
         final String file_path = file.getAbsolutePath();
@@ -166,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 // Hide Progress dialog
+                progressDialog.setMessage("DONE");
                 progressDialog.dismiss();
                 String jsonResponse = response.body().string();
                 Log.e(TAG, "RESPONSE:" + jsonResponse);
