@@ -21,10 +21,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static int IMAGE_CHECK_CODE = 0;
     private static final int IMAGE_PICK_CODE = 100;
     private static final int PERMISSION_CODE = 101;
 
-    Button uploadButton;
+    Button analyzeButton;
     ImageView imageView;
 
     @Override
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bindView();
 
-        uploadButton.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //check runtime permission
@@ -57,10 +59,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        analyzeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(IMAGE_CODE != IMAGE_PICK_CODE)
+                {
+                    Toast.makeText(getApplicationContext(),"No file selected", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    imageView.setSelected(true);
+                }
+            }
+        });
     }
 
     public void bindView() {
-        uploadButton = findViewById(R.id.buttonUpload);
+        analyzeButton = findViewById(R.id.buttonAnalyze);
         imageView = findViewById(R.id.imageView);
     }
 
@@ -68,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         //intent to upload image
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, IMAGE_PICK_CODE);
+        IMAGE_CHECK_CODE = IMAGE_PICK_CODE;
     }
 
     //handling request of runtime permission
