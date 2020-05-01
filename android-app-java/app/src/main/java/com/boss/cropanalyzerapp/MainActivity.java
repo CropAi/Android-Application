@@ -7,8 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private static boolean IMAGE_CHECK = false;
     private static final int IMAGE_PICK_CODE = 100;
     private static final int PERMISSION_CODE = 101;
+    String TAG = "MainActivity";
+    String image_path = "";
 
     Button analyzeButton;
     ImageView imageView;
@@ -83,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //handling request of runtime permission
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -104,9 +108,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            String TAG = "Image location";
             Log.e(TAG, data.getData().toString());
+            //  We will pass the Uri , Get Path of the image
             imageView.setImageURI(data.getData());
+            image_path = getUrlPath(data.getData());
         }
     }
+
+    public String getUrlPath(Uri path) {
+        String picturePath = "";
+        Uri selectedImage = path;
+        String[] filePath = {MediaStore.Images.Media.DATA};
+        Cursor cursor = this.getContentResolver().query(selectedImage, filePath, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int columnIndexedValue = cursor.getColumnIndex(filePath[0]);
+            picturePath = cursor.getString(columnIndexedValue);
+            cursor.close();
+        }
+        Log.e(TAG, picturePath);
+        return picturePath;
+    }
+
 }
