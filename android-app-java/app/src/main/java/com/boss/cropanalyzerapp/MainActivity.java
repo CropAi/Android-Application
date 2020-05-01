@@ -64,12 +64,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!IMAGE_CHECK) {
-                    Toast.makeText(getApplicationContext(), "No File Selected", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "No Image  Selected", Toast.LENGTH_SHORT).show();
                 } else {
 
                     // Make network request here and launch result activity on getting response
                     // pass the response in intent to the result activity
-
+                    Intent intent = new Intent(MainActivity.this , ResultActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -129,5 +130,4 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, picturePath);
         return picturePath;
     }
-
 }
