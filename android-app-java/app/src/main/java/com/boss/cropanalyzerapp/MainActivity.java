@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean userSelectedImage = false;
 
     ProgressDialog progressDialog;
-    Button uploadButton;
+    Button analyzeButton;
     ImageView imageView;
 
     @Override
@@ -58,7 +58,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clickListeners() {
-        uploadButton.setOnClickListener(new View.OnClickListener() {
+        analyzeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, String.valueOf(userSelectedImage));
+                if (userSelectedImage) {
+                    // Make Network Request
+                    getLeafCategory();
+                } else {
+                    Toast.makeText(MainActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e(TAG, String.valueOf(userSelectedImage));
@@ -116,8 +129,9 @@ public class MainActivity extends AppCompatActivity {
     private void makeRequest(String extension) {
 
         // Disable the button for multiple requests
-        uploadButton.setClickable(false);
-        uploadButton.setAlpha(.5f);
+
+        analyzeButton.setClickable(false);
+        analyzeButton.setAlpha(.5f);
         imageView.setClickable(false);
 
         // make a loader on the main thread
@@ -196,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bindViews() {
-        uploadButton = findViewById(R.id.buttonUpload);
+        analyzeButton = findViewById(R.id.buttonAnalyze);
         imageView = findViewById(R.id.imageView);
     }
 
@@ -264,8 +278,8 @@ public class MainActivity extends AppCompatActivity {
         userSelectedImage = false;
         imageView.setImageResource(R.drawable.ic_leaf);
         // reset the upload button
-        uploadButton.setClickable(true);
-        uploadButton.setAlpha(1f);
+        analyzeButton.setClickable(true);
+        analyzeButton.setAlpha(1f);
         // reset the imageView
         imageView.setClickable(true);
     }
