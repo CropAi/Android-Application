@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //handling request of runtime permission
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
