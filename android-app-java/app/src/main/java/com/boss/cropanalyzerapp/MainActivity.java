@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
                     // Make network request here and launch result activity on getting response
                     // pass the response in intent to the result activity
+
+
                     Intent intent =  new Intent(MainActivity.this, ResultActivity.class);
                     startActivity(intent);
                 }
