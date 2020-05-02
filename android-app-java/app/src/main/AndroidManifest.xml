@@ -14,8 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+<<<<<<< HEAD
         <activity android:name=".ResultActivity"/>
         <activity android:name=".MainActivity">
+=======
+        <activity android:name=".views.ResultActivity"></activity>
+        <activity android:name=".views.MainActivity">
+>>>>>>> self-test
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 
