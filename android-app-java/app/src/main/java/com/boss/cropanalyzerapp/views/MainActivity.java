@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getLeafCategory() {
+        Log.e(TAG, "Inside Leaf category");
 
         File file = new File(image_path);
         final String file_path = file.getAbsolutePath();
@@ -128,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeRequest(String extension) {
+
+        Log.e(TAG, "Inside make request");
 
         // Disable the button for multiple requests
 
