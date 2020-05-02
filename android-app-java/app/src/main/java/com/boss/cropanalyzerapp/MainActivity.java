@@ -73,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) {
+                Log.e(TAG, String.valueOf(userSelectedImage));
+                if (userSelectedImage) {
+                    // Make Network Request
+                    getLeafCategory();
+                } else {
+                    Toast.makeText(MainActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Log.e("TAG", String.valueOf(userSelectedImage));
                 //check runtime permission
@@ -116,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
     private void makeRequest(String extension) {
 
         // Disable the button for multiple requests
+
         analyzeButton.setClickable(false);
         analyzeButton.setAlpha(.5f);
         imageView.setClickable(false);
