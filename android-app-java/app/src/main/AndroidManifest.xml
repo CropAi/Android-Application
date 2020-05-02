@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 <<<<<<< HEAD
-        <activity android:name=".ResultActivity"/>
+
         <activity android:name=".MainActivity">
 =======
         <activity android:name=".views.ResultActivity"></activity>
