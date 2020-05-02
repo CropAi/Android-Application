@@ -19,4 +19,4 @@ This is a crop advisory app for farmers and gardeners. It can diagnose pest dama
 This application takes an image of the leaf or crop as input and shows the results. It diagnoses the plant disease, pest damage, nutrient deficiencies and other factors affecting the growth of the crop and offers corresponding treatment measures to cure it. The result will be mainly presented in three categories, which are symptoms, treatments, and recommended products.
 
 
-# <a href="https://drive.google.com/open?id=1mCftr71FDiYILhKVuV1DDjOI2bSR8lWM">TEST APK</a>
+# <a href="https://drive.google.com/open?id=1doS1DcylZ-UBj6cjzKr0FC12KhWup5f3">TEST APK</a>
