@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHolder> {
-    String TAG = "Adapter";
+    String TAG = "ResultAdapter";
     Context context;
     ArrayList<String> arrayList;
 
@@ -50,7 +50,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHold
                 e.printStackTrace();
             }
             DisplayMetrics metrics = this.context.getResources().getDisplayMetrics();
-            float dp = 8f;
+            float dp = 6f;
             float fPixels = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dp, metrics);
             int pixels = Math.round(fPixels);
             holder.textView.setTextSize(pixels);
