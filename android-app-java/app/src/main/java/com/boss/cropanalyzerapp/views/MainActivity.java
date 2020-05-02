@@ -1,4 +1,4 @@
-package com.boss.cropanalyzerapp;
+package com.boss.cropanalyzerapp.views;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.boss.cropanalyzerapp.R;
 import com.bumptech.glide.Glide;
 
 import java.io.File;

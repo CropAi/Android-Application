@@ -1,4 +1,4 @@
-package com.boss.cropanalyzerapp;
+package com.boss.cropanalyzerapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +11,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.boss.cropanalyzerapp.decorators.DividerItemDecorator;
+import com.boss.cropanalyzerapp.R;
+import com.boss.cropanalyzerapp.adapters.ResultAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.boss.cropanalyzerapp;
+package com.boss.cropanalyzerapp.decorators;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;

@@ -1,4 +1,4 @@
-package com.boss.cropanalyzerapp;
+package com.boss.cropanalyzerapp.adapters;
 
 import android.content.Context;
 import android.text.method.LinkMovementMethod;
@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.boss.cropanalyzerapp.R;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHold
     Context context;
     ArrayList<String> arrayList;
 
-    ResultAdapter(Context context, ArrayList<String> list) {
+    public ResultAdapter(Context context, ArrayList<String> list) {
         this.arrayList = list;
         this.context = context;
     }
