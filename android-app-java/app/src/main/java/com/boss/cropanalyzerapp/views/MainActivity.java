@@ -244,13 +244,14 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case IMAGE_PICK_CODE: {
-                    Log.e(TAG, data.getData().getPath().split(":")[1]);
+                    // Log.e(TAG, data.getData().getPath().split(":")[1]); -- this log statement is producing a bug, so commenting out
                     imageView.setImageURI(data.getData());
                     userSelectedImage = true;
 
                     Uri selectedImage = data.getData();
                     String[] filePath = {MediaStore.Images.Media.DATA};
                     Log.e(TAG, filePath.toString());
+                    // content resolver helps us to get the access of different content providers
                     // content resolver helps us to get the access of different content providers
                     Cursor cursor = this.getContentResolver().query(selectedImage, filePath, null, null, null);
                     if (cursor != null) {
