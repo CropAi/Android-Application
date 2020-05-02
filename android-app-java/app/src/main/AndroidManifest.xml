@@ -14,13 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.ResultActivity"></activity>
-        <activity android:name=".views.MainActivity">
+        <activity android:name=".onboarding.OnBoardingActivity"></activity>
+        <activity android:name=".views.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.ResultActivity" />
+        <activity android:name=".views.MainActivity" />
     </application>
 
 </manifest>
