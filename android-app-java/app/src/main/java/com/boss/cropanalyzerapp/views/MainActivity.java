@@ -74,19 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Log.e(TAG, String.valueOf(userSelectedImage));
-                if (userSelectedImage) {
-                    // Make Network Request
-                    getLeafCategory();
-                } else {
-                    Toast.makeText(MainActivity.this, "No Image Selected", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 Log.e("TAG", String.valueOf(userSelectedImage));
                 //check runtime permission
@@ -149,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 progressDialog.setMessage(millisUntilFinished / 1000 + " SECONDS REMAINING");
             }
-
             public void onFinish() {
                 progressDialog.setMessage("ALMOST THERE");
             }
@@ -181,10 +167,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, final IOException e) {
                 // Hide Progress dialog
-                progressDialog.dismiss();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        progressDialog.dismiss();
                         Toast.makeText(MainActivity.this, "No Internet Connection", Toast.LENGTH_LONG).show();
                         resetViews();
                     }
@@ -193,18 +179,23 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, final Response response) throws IOException {
                 // Hide Progress dialog
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         progressDialog.setMessage("DONE");
                         progressDialog.dismiss();
+                        String jsonResponse = null;
+                        try {
+                            jsonResponse = response.body().string();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Log.e(TAG, "RESPONSE:" + jsonResponse);
+                        launchResultActivity(jsonResponse);
                     }
                 });
-                String jsonResponse = response.body().string();
-                Log.e(TAG, "RESPONSE:" + jsonResponse);
-                launchResultActivity(jsonResponse);
             }
         });
     }
