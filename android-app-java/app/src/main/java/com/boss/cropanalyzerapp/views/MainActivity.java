@@ -195,8 +195,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 // Hide Progress dialog
-                progressDialog.setMessage("DONE");
-                progressDialog.dismiss();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.setMessage("DONE");
+                        progressDialog.dismiss();
+                    }
+                });
                 String jsonResponse = response.body().string();
                 Log.e(TAG, "RESPONSE:" + jsonResponse);
                 launchResultActivity(jsonResponse);
