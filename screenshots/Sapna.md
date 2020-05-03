@@ -1,3 +1,5 @@
+Tested on Redmi Note 8.
+
 ## Welcome Screen
 
 ![Welcome Screen](https://user-images.githubusercontent.com/56690856/80910496-6ed9ff00-8d4d-11ea-8a4c-d97e33fd73a1.jpeg)
