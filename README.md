@@ -64,4 +64,4 @@ Bored by just manul instructions, worry not, I have images to understand better.
 </p>
 
 
-### .... and there you have it. The CROP AI Android Application woking at your disposal. Make sure you play around with it and most importantly help us in improving the application as well with your valuable suggestion. We always love to hear from you.
+### .... and there you have it. The CROP AI Android Application working at your disposal. Make sure you play around with it and most importantly help us in improving the application as well with your valuable suggestion. We always love to hear from you.
