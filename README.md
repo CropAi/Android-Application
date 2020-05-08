@@ -22,7 +22,7 @@ This application takes an image of the leaf or crop as input and shows the resul
 
 Now comes the most exciting part of the project. Understanding and making use of the actual Android Application. So let's get started. 🥳 👽
 
-1. Start off by downloading and installing the application from this [URL] ("https://drive.google.com/open?id=1doS1DcylZ-UBj6cjzKr0FC12KhWup5f3") 👻
+1. Start off by downloading and installing the application from this [URL](https://drive.google.com/open?id=1doS1DcylZ-UBj6cjzKr0FC12KhWup5f3) 👻
 
 2. Open the application on your personal device and you should have it ready to use.
 
