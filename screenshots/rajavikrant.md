@@ -1,4 +1,4 @@
-# Device used 
+# Device used
 - Motorola G5S Plus
 Android- 8.1.0
 ## OnBoard Screen
