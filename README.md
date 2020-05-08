@@ -26,7 +26,7 @@ Now comes the most exciting part of the project. Understanding and making use of
 
 2. Open the application on your personal device and you should have it ready to use.
 
-3. As every typical Android Applications, we beleieve in making your experience the simplest and best and so we have designed a highly curated  [onboarding]("https://developer.android.com/training/tv/playback/onboarding") process for you by providing you with a sweet and crisp description on using our application. 
+3. As every typical Android Applications, we believe in making your experience the simplest and best and so we have designed a highly curated  [onboarding]("https://developer.android.com/training/tv/playback/onboarding") process for you by providing you with a sweet and crisp description on using our application. 
    You may proceed on your own at this  of time or ......🧓
 
 **SPOILER ALERT**: You can view everything on the app starting from this point moving forward. We hope you don't mind...😜😏
@@ -64,4 +64,4 @@ Bored by just manul instructions, worry not, I have images to understand better.
 </p>
 
 
-### .... and there you have it. The CROP AI Android Application Woking at your disposal. MAke sure you play around with it and mostly importantly help us in improving the application as well with you valuable suggestion. We always love to hear from you.
+### .... and there you have it. The CROP AI Android Application woking at your disposal. Make sure you play around with it and most importantly help us in improving the application as well with your valuable suggestion. We always love to hear from you.
