@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,14 @@ import com.boss.cropanalyzerapp.R;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.channels.FileChannel;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 progressDialog.setMessage(millisUntilFinished / 1000 + " SECONDS REMAINING");
             }
+
             public void onFinish() {
                 progressDialog.setMessage("ALMOST THERE");
             }
@@ -244,25 +253,46 @@ public class MainActivity extends AppCompatActivity {
             switch (requestCode) {
                 case IMAGE_PICK_CODE: {
                     // Log.e(TAG, data.getData().getPath().split(":")[1]); -- this log statement is producing a bug, so commenting out
-                    imageView.setImageURI(data.getData());
-                    userSelectedImage = true;
 
+                    userSelectedImage = true;
                     Uri selectedImage = data.getData();
-                    String[] filePath = {MediaStore.Images.Media.DATA};
-                    Log.e(TAG, filePath.toString());
-                    // content resolver helps us to get the access of different content providers
-                    // content resolver helps us to get the access of different content providers
-                    Cursor cursor = this.getContentResolver().query(selectedImage, filePath, null, null, null);
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        int columnIndexedValue = cursor.getColumnIndex(filePath[0]);
-                        String picturePath = cursor.getString(columnIndexedValue);
-                        cursor.close();
-                        image_path = picturePath;
-                        Log.e(TAG, "PIC PATH :" + picturePath);
-                        Glide.with(this).load(picturePath).into(imageView);
+
+                    try {
+                        // A ParcelFileDescriptor is used here to open the selected file.
+                        // It will work fine regardless of any Android OS API level
+                        ParcelFileDescriptor parcelfileDescriptor = this.getContentResolver().openFileDescriptor(selectedImage, "r");
+                        FileDescriptor fileDescriptor = parcelfileDescriptor.getFileDescriptor();
+
+                        // FileInputStream and InputStreamChannel are created for incoming data from the ParcelFileDescriptor
+                        FileInputStream inputStream = new FileInputStream(fileDescriptor);
+                        FileChannel inputStreamChannel = inputStream.getChannel();
+
+                        // Image file is given a name
+                        String nameOfFile = "copyImageFile.jpg";
+
+                        // A empty copy of the original selected file is created here
+                        File copyImageFile = new File(getCacheDir(), nameOfFile);
+
+                        // FileOutputStream and OutputStreamChannel are created for outgoing data to the copied file
+                        FileOutputStream outputStream = new FileOutputStream(copyImageFile);
+                        FileChannel outputStreamChannel = outputStream.getChannel();
+
+                        // The data is transferred to the copied file
+                        inputStreamChannel.transferTo(0, inputStreamChannel.size(), outputStreamChannel);
+
+                        inputStream.close();
+                        outputStream.close();
+
+                        // Here we have obtained the copied file Uri
+                        Uri copyImage = Uri.fromFile(copyImageFile);
+                        imageView.setImageURI(copyImage);
+
+                        image_path = copyImage.getPath();
+                        Log.e(TAG, "PIC PATH :" + image_path);
+                        break;
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    break;
                 }
                 case RESET_VIEWS: {
                     // reset the boolean variable and imageView
