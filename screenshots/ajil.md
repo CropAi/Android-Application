@@ -13,7 +13,7 @@ Nokia 5.1 plus.
 
 ## Analzing Screen
 
-![analzingscreen](https://user-images.githubusercontent.com/39672981/82316922-2a0bc480-99eb-11ea-9514-42da139c784e.jpg()
+![analzingscreen](https://user-images.githubusercontent.com/39672981/82316922-2a0bc480-99eb-11ea-9514-42da139c784e.jpg)
 
 ## Result Screen
 
